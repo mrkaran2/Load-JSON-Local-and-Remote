@@ -1,0 +1,8 @@
+{
+  "name": "Making-AJAX-requests-to-Node.js",
+  "version": "0.0.1",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "node": "^9.9.0"
+  }
+}

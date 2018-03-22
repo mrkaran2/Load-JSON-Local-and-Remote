@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+            *{
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            .container-fluid{
+                width: 100%;
+                height: 100vh;
+            }
+            .gap{
+                margin-top: 140px;
+                width:100%;
+            }
+            .btn{
+                width: 100px;
+                padding: 5px;
+                margin: 0 auto;
+                margin-bottom: 10px;
+                margin-top: 20px;
+            }
+            .centered{
+                text-align: center;
+                margin: 20px;
+                margin: 0 auto;
+                margin-top:30px;
+            }
+            body{
+                width: 100%;
+                height: auto;
+                overflow: auto;  
+            }
+</style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <title>Dynamic Load on Scrolling using AJAX</title>
+</head>
+<body>
+    <div class="container-fluid" id="main">
+        <div class="row justify-content-center clearfix">
+                    <div class="card col-md-3 centered  clearfix">
+                        <div class="row centered"><h5>Send AJAX request to Node.js</h5></div>
+                        <button id="btn1" class="btn btn-primary">Load</button>
+                    </div>
+        </div>
+        <div class="row justify-content-center clearfix">
+                <div class="card col-md-3 centered  clearfix"> 
+                <div class="container justify-content-center">
+                    <table class="table table-striped" style="visibility: hidden;" id="myTable">
+                    </table>
+                </div>
+            </div>
+        </div>        
+    </div>
+    <script>
+    $("#btn1").click(function() {
+        $.getJSON("./data", function(json) {
+            for (var i in json) {
+                $("#myTable").append("<tr><td>" + json[i].brand + "</td><td>" + json[i].price + "</td></tr>");
+            }
+            $(myTable).css('visibility','visible');
+        });
+    });
+    </script>
+</body>
+</html>
